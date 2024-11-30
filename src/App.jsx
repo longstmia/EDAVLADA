@@ -3,19 +3,23 @@ import './App.css'
 import RecipeCard from "../src/components/RecipeCard.jsx"
 
 
+
+
+const APP_ID = '3ce69532';
+const APP_KEY = '18e7aef5c4b47b875b8ed3c8a6ba9eee'
+
 export default function App() {
     const [query, setQuery] = useState('');
     const [recipes, setRecipes] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState(null);
 
-    const appId = '3ce69532';
-    const appKey = '18e7aef5c4b47b875b8ed3c8a6ba9eee';
+
 
     const fetchRecipes = async () => {
         setIsLoading(true);
         setError(null);
-        const url = `https://api.edamam.com/search?q=${query}&app_id=${appId}&app_key=${appKey}`;
+        const url = `https://api.edamam.com/search?q=${query}&app_id=${APP_ID}&app_key=${APP_KEY}`;
         try {
             const response = await fetch(url);
             if (!response.ok) {
